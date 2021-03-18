@@ -1,20 +1,26 @@
 import { css } from 'https://cdn.skypack.dev/@emotion/css?dts'
 import { html } from '../../helpers/react.js'
 
-const fontCss = css`
+//#region Styles
+const containerCss = css`
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 `
-
-const buttonCss = css`
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
+const timeCodeCss = css`
+  font-size: 16vw;
+  font-weight: bold;
 `
-
+const buttonSize = 20
+const buttonCss = css`
+  width: ${buttonSize}vw;
+  height: ${buttonSize}vw;
+  border-radius: ${buttonSize / 2}vw;
+  font-size: ${buttonSize / 5}vw;
+`
 const playCss = css`
   background: green;
 `
+//#endregion
 
 /**
  * App View
@@ -22,8 +28,8 @@ const playCss = css`
  * @returns
  */
 export default props => html`
-  <div class=${fontCss}>
-    <h1>${props.timeLabel}<//>
+  <div class=${containerCss}>
+    <div class=${timeCodeCss}>${props.timeLabel}<//>
     <button
       class=${buttonCss}
       onClick=${props.reset}
